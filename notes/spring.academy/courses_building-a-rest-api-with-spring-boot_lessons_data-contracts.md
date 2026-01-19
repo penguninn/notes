@@ -2,7 +2,7 @@
 url: https://spring.academy/courses/building-a-rest-api-with-spring-boot/lessons/data-contracts
 title: API Contracts & JSON - Spring Academy
 created: 2026-01-19T03:18:47.384Z
-updated: 2026-01-19T03:24:52.212Z
+updated: 2026-01-19T03:25:00.476Z
 tags: []
 ---
 
@@ -194,4 +194,4 @@ Response Body:
 - **JSON:** https://www.json.org/
 - **YAML:** https://yaml.org/
 - **XML:** https://www.w3.org/XML/
-- **Consumer-Driven Contracts:** Xem tÃ i liá»u chÃ­nh thá»©c Spring 
+- **Consumer-Driven Contracts:** Xem tÃ i liá»u chÃ­nh thá»©c Spring
