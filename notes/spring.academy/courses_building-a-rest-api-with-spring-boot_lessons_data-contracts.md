@@ -2,13 +2,13 @@
 url: https://spring.academy/courses/building-a-rest-api-with-spring-boot/lessons/data-contracts
 title: API Contracts & JSON - Spring Academy
 created: 2026-01-19T03:18:47.384Z
-updated: 2026-01-19T03:25:56.153Z
+updated: 2026-01-19T04:15:24.998Z
 tags: []
 ---
 
 # Notes
 
-## API CONTRACTS & JSON (HỢP ĐỒNG API & JSON)
+## API CONTRACTS & JSON (HỢP ĐỒNG API & JSON) 
 
 Chúng ta đang phát triển một API. Điều này đặt ra rất nhiều câu hỏi về cách API nên hoạt động:
 
