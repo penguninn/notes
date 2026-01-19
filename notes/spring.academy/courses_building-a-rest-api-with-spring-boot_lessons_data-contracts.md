@@ -2,7 +2,7 @@
 url: https://spring.academy/courses/building-a-rest-api-with-spring-boot/lessons/data-contracts
 title: API Contracts & JSON - Spring Academy
 created: 2026-01-19T03:18:47.384Z
-updated: 2026-01-19T03:25:00.476Z
+updated: 2026-01-19T03:25:02.458Z
 tags: []
 ---
 
