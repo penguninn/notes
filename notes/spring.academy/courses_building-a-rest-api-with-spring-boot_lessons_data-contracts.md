@@ -2,68 +2,68 @@
 url: https://spring.academy/courses/building-a-rest-api-with-spring-boot/lessons/data-contracts
 title: API Contracts & JSON - Spring Academy
 created: 2026-01-19T03:18:47.384Z
-updated: 2026-01-19T03:25:02.458Z
+updated: 2026-01-19T03:25:56.153Z
 tags: []
 ---
 
 # Notes
 
-## API CONTRACTS & JSON (Há»¢P Äá»NG API & JSON)
+## API CONTRACTS & JSON (HỢP ĐỒNG API & JSON)
 
-ChÃºng ta Äang phÃ¡t triá»n má»t API. Äiá»u nÃ y Äáº·t ra ráº¥t nhiá»u cÃ¢u há»i vá» cÃ¡ch API nÃªn hoáº¡t Äá»ng:
+Chúng ta đang phát triển một API. Điều này đặt ra rất nhiều câu hỏi về cách API nên hoạt động:
 
-### Nhá»¯ng CÃ¢u Há»i ChÃ­nh
+### Những Câu Hỏi Chính
 
-- LÃ m tháº¿ nÃ o ngÆ°á»i tiÃªu dÃ¹ng API nÃªn tÆ°Æ¡ng tÃ¡c vá»i API?
-- NgÆ°á»i tiÃªu dÃ¹ng cáº§n gá»­i dá»¯ liá»u gÃ¬ trong cÃ¡c ká»ch báº£n khÃ¡c nhau?
-- API nÃªn tráº£ vá» dá»¯ liá»u gÃ¬ cho ngÆ°á»i tiÃªu dÃ¹ng vÃ  khi nÃ o?
-- API giao tiáº¿p nhÆ° tháº¿ nÃ o khi nÃ³ bá» sá»­ dá»¥ng khÃ´ng chÃ­nh xÃ¡c (hoáº·c cÃ³ lá»i xáº£y ra)?
+- Làm thế nào người tiêu dùng API nên tương tác với API?
+- Người tiêu dùng cần gửi dữ liệu gì trong các kịch bản khác nhau?
+- API nên trả về dữ liệu gì cho người tiêu dùng và khi nào?
+- API giao tiếp như thế nào khi nó bị sử dụng không chính xác (hoặc có lỗi xảy ra)?
 
-### Giáº£i PhÃ¡p: Há»£p Äá»ng API
+### Giải Pháp: Hợp Đồng API
 
-Báº¥t cá»© khi nÃ o cÃ³ thá», nhÃ  cung cáº¥p API vÃ  ngÆ°á»i tiÃªu dÃ¹ng nÃªn tháº£o luáº­n cÃ¡c ká»ch báº£n nÃ y vÃ  Äi Äáº¿n thá»a thuáº­n. Tá»t hÆ¡n ná»¯a, há» nÃªn ghi chÃ©p nhá»¯ng thá»a thuáº­n nÃ y khÃ´ng chá» trong má»t há» thá»ng tÃ i liá»u chung, mÃ  cÃ²n theo cÃ¡ch há» trá»£ **cÃ¡c bÃ i kiá»m tra tá»± Äá»ng** (passed hoáº·c failed) dá»±a trÃªn cÃ¡c quyáº¿t Äá»nh nÃ y.
+Bất cứ khi nào có thể, nhà cung cấp API và người tiêu dùng nên thảo luận các kịch bản này và đi đến thỏa thuận. Tốt hơn nữa, họ nên ghi chép những thỏa thuận này không chỉ trong một hệ thống tài liệu chung, mà còn theo cách hỗ trợ **các bài kiểm tra tự động** (passed hoặc failed) dựa trên các quyết định này.
 
-**ÄÃ¢y lÃ  nÆ¡i khÃ¡i niá»m "contracts" (há»£p Äá»ng) xuáº¥t hiá»n.**
+**Đây là nơi khái niệm "contracts" (hợp đồng) xuất hiện.**
 
 ---
 
-## Há»¢P Äá»NG API (API CONTRACTS)
+## HỢP ĐỒNG API (API CONTRACTS)
 
-### Äá»nh NghÄ©a
+### Định Nghĩa
 
-**API Contract** lÃ  má»t **thá»a thuáº­n chÃ­nh thá»©c giá»¯a nhÃ  cung cáº¥p pháº§n má»m vÃ  ngÆ°á»i tiÃªu dÃ¹ng** mÃ  trá»«u tÆ°á»£ng giao tiáº¿p cÃ¡ch tÆ°Æ¡ng tÃ¡c vá»i nhau.
+**API Contract** là một **thỏa thuận chính thức giữa nhà cung cấp phần mềm và người tiêu dùng** mà trừu tượng giao tiếp cách tương tác với nhau.
 
-**Há»£p Äá»ng nÃ y xÃ¡c Äá»nh:**
-- CÃ¡ch nhÃ  cung cáº¥p API vÃ  ngÆ°á»i tiÃªu dÃ¹ng tÆ°Æ¡ng tÃ¡c
-- Dá»¯ liá»u ÄÆ°á»£c trao Äá»i trÃ´ng nhÆ° tháº¿ nÃ o
-- CÃ¡ch giao tiáº¿p cÃ¡c trÆ°á»ng há»£p thÃ nh cÃ´ng vÃ  tháº¥t báº¡i
+**Hợp đồng này xác định:**
+- Cách nhà cung cấp API và người tiêu dùng tương tác
+- Dữ liệu được trao đổi trông như thế nào
+- Cách giao tiếp các trường hợp thành công và thất bại
 
-### Æ¯u Äiá»m Quan Trá»ng
+### Ưu Điểm Quan Trọng
 
-- NhÃ  cung cáº¥p vÃ  ngÆ°á»i tiÃªu dÃ¹ng **khÃ´ng cáº§n pháº£i dÃ¹ng cÃ¹ng ngÃ´n ngá»¯ láº­p trÃ¬nh**, chá» cáº§n dÃ¹ng **cÃ¹ng má»t API contract**
-- Cho phÃ©p sá»± tÆ°Æ¡ng tÃ¡c giá»¯a cÃ¡c há» thá»ng khÃ¡c nhau
+- Nhà cung cấp và người tiêu dùng **không cần phải dùng cùng ngôn ngữ lập trình**, chỉ cần dùng **cùng một API contract**
+- Cho phép sự tương tác giữa các hệ thống khác nhau
 
-### VÃ­ Dá»¥: Family Cash Card API Contract
+### Ví Dụ: Family Cash Card API Contract
 
-Äá»i vá»i miá»n (domain) Family Cash Card, giáº£ sá»­ hiá»n táº¡i cÃ³ má»t há»£p Äá»ng giá»¯a dá»ch vá»¥ Cash Card vÃ  táº¥t cáº£ cÃ¡c dá»ch vá»¥ sá»­ dá»¥ng nÃ³.
+Đối với miền (domain) Family Cash Card, giả sử hiện tại có một hợp đồng giữa dịch vụ Cash Card và tất cả các dịch vụ sử dụng nó.
 
-#### Äáº·c Táº£ Request
+#### Đặc Tả Request
 ```
 Request URI: /cashcards/{id}
 HTTP Verb: GET
 Body: None
 ```
 
-#### Äáº·c Táº£ Response
+#### Đặc Tả Response
 
 **Status Codes:**
-- `200 OK` - Náº¿u ngÆ°á»i dÃ¹ng ÄÆ°á»£c phÃ©p truy cáº­p vÃ  Cash Card ÄÆ°á»£c láº¥y thÃ nh cÃ´ng
-- `401 UNAUTHORIZED` - Náº¿u ngÆ°á»i dÃ¹ng chÆ°a xÃ¡c thá»±c (unauthenticated) hoáº·c khÃ´ng ÄÆ°á»£c phÃ©p (unauthorized)
-- `404 NOT FOUND` - Náº¿u ngÆ°á»i dÃ¹ng xÃ¡c thá»±c vÃ  ÄÆ°á»£c phÃ©p, nhÆ°ng khÃ´ng tÃ¬m tháº¥y Cash Card
+- `200 OK` - Nếu người dùng được phép truy cập và Cash Card được lấy thành công
+- `401 UNAUTHORIZED` - Nếu người dùng chưa xác thực (unauthenticated) hoặc không được phép (unauthorized)
+- `404 NOT FOUND` - Nếu người dùng xác thực và được phép, nhưng không tìm thấy Cash Card
 
 **Response Body Type:** JSON
 
-**VÃ­ Dá»¥ Response Body:**
+**Ví Dụ Response Body:**
 ```json
 {
   "id": 99,
@@ -73,31 +73,31 @@ Body: None
 
 ---
 
-## Táº I SAO API CONTRACTS QUAN TRá»NG?
+## TẠI SAO API CONTRACTS QUAN TRỌNG?
 
-### TÃ¡c Dá»¥ng
+### Tác Dụng
 
-**API Contracts** quan trá»ng vÃ¬ chÃºng **giao tiáº¿p hÃ nh vi cá»§a REST API**. ChÃºng cung cáº¥p chi tiáº¿t cá»¥ thá» vá»:
-- Dá»¯ liá»u ÄÆ°á»£c tuáº§n tá»± hÃ³a (serialized) hoáº·c giáº£i tuáº§n tá»± hÃ³a (deserialized) cho má»i lá»nh
-- Tham sá» (parameters) ÄÆ°á»£c trao Äá»i
+**API Contracts** quan trọng vì chúng **giao tiếp hành vi của REST API**. Chúng cung cấp chi tiết cụ thể về:
+- Dữ liệu được tuần tự hóa (serialized) hoặc giải tuần tự hóa (deserialized) cho mỗi lệnh
+- Tham số (parameters) được trao đổi
 
-### Lá»£i Ãch
+### Lợi Ích
 
-- API contracts ÄÆ°á»£c viáº¿t theo cÃ¡ch cÃ³ thá» dá» dÃ ng dá»ch thÃ nh **chá»©c nÄng nhÃ  cung cáº¥p vÃ  ngÆ°á»i tiÃªu dÃ¹ng**
-- CÃ³ thá» ÄÆ°á»£c dá»ch thÃ nh **cÃ¡c bÃ i kiá»m tra tá»± Äá»ng tÆ°Æ¡ng á»©ng** (automated tests)
-- ChÃºng ta sáº½ triá»n khai cáº£ **chá»©c nÄng nhÃ  cung cáº¥p API** vÃ  **bÃ i kiá»m tra tá»± Äá»ng** trong cÃ¡c lab
+- API contracts được viết theo cách có thể dễ dàng dịch thành **chức năng nhà cung cấp và người tiêu dùng**
+- Có thể được dịch thành **các bài kiểm tra tự động tương ứng** (automated tests)
+- Chúng ta sẽ triển khai cả **chức năng nhà cung cấp API** và **bài kiểm tra tự động** trong các lab
 
 ---
 
-## JSON LÃ GÃ? (WHAT IS JSON?)
+## JSON LÀ GÌ? (WHAT IS JSON?)
 
-### Äá»nh NghÄ©a
+### Định Nghĩa
 
-**JSON** = **Javascript Object Notation** (KÃ½ Hiá»u Äá»i TÆ°á»£ng Javascript)
+**JSON** = **Javascript Object Notation** (Ký Hiệu Đối Tượng Javascript)
 
-JSON cung cáº¥p má»t **Äá»nh dáº¡ng trao Äá»i dá»¯ liá»u** Äáº¡i diá»n cho thÃ´ng tin cá»¥ thá» cá»§a má»t Äá»i tÆ°á»£ng theo cÃ¡ch **dá» Äá»c vÃ  dá» hiá»u**.
+JSON cung cấp một **định dạng trao đổi dữ liệu** đại diện cho thông tin cụ thể của một đối tượng theo cách **dễ đọc và dễ hiểu**.
 
-### VÃ­ Dá»¥ JSON
+### Ví Dụ JSON
 ```json
 {
   "id": 99,
@@ -105,63 +105,63 @@ JSON cung cáº¥p má»t **Äá»nh dáº¡ng trao Äá»i dá»¯ li
 }
 ```
 
-### CÃ¡c Äá»nh Dáº¡ng KhÃ¡c
+### Các Định Dạng Khác
 
-CÃ¡c Äá»nh dáº¡ng dá»¯ liá»u phá» biáº¿n khÃ¡c bao gá»m:
-- **YAML** (Yet Another Markup Language) - Má»t ngÃ´n ngá»¯ ÄÃ¡nh dáº¥u khÃ¡c
-- **XML** (Extensible Markup Language) - NgÃ´n ngá»¯ ÄÃ¡nh dáº¥u má» rá»ng
+Các định dạng dữ liệu phổ biến khác bao gồm:
+- **YAML** (Yet Another Markup Language) - Một ngôn ngữ đánh dấu khác
+- **XML** (Extensible Markup Language) - Ngôn ngữ đánh dấu mở rộng
 
-### Táº¡i Sao JSON Tá»t HÆ¡n XML?
+### Tại Sao JSON Tốt Hơn XML?
 
-So vá»i XML, JSON:
-- Äá»c vÃ  ghi **nhanh hÆ¡n**
-- **Dá» sá»­ dá»¥ng hÆ¡n**
-- Chiáº¿m **Ã­t dung lÆ°á»£ng hÆ¡n**
-- Hoáº¡t Äá»ng **liá»n máº¡ch vá»i cÃ¡c á»©ng dá»¥ng dá»±a trÃªn Javascript**
+So với XML, JSON:
+- Đọc và ghi **nhanh hơn**
+- **Dễ sử dụng hơn**
+- Chiếm **ít dung lượng hơn**
+- Hoạt động **liền mạch với các ứng dụng dựa trên Javascript**
 
-### Æ¯u Äiá»m cá»§a JSON
+### Ưu Điểm của JSON
 
-- CÃ³ thá» sá»­ dá»¥ng vá»i **háº§u háº¿t cÃ¡c ngÃ´n ngá»¯ láº­p trÃ¬nh hiá»n Äáº¡i**
-- Hoáº¡t Äá»ng trÃªn **táº¥t cáº£ cÃ¡c ná»n táº£ng chÃ­nh**
-- **JSON ÄÃ£ thay tháº¿ XML** lÃ m Äá»nh dáº¡ng ÄÆ°á»£c sá»­ dá»¥ng rá»ng rÃ£i nháº¥t cho cÃ¡c API ÄÆ°á»£c sá»­ dá»¥ng bá»i cÃ¡c á»©ng dá»¥ng Web, bao gá»m REST APIs
+- Có thể sử dụng với **hầu hết các ngôn ngữ lập trình hiện đại**
+- Hoạt động trên **tất cả các nền tảng chính**
+- **JSON đã thay thế XML** làm định dạng được sử dụng rộng rãi nhất cho các API được sử dụng bởi các ứng dụng Web, bao gồm REST APIs
 
 ---
 
-## Báº¢NG THUáº¬T NGá»® QUAN TRá»NG
+## BẢNG THUẬT NGỮ QUAN TRỌNG
 
-| Thuáº­t Ngá»¯ | Tiáº¿ng Anh | Giáº£i ThÃ­ch |
+| Thuật Ngữ | Tiếng Anh | Giải Thích |
 |-----------|-----------|-----------|
-| Há»£p Äá»ng | Contract | Thá»a thuáº­n, quy Æ°á»c |
-| API Contract | API Contract | Thá»a thuáº­n vá» hÃ nh vi API |
-| NhÃ  Cung Cáº¥p | Provider | BÃªn cung cáº¥p dá»ch vá»¥/API |
-| NgÆ°á»i TiÃªu DÃ¹ng | Consumer | BÃªn sá»­ dá»¥ng dá»ch vá»¥/API |
-| Trao Äá»i Dá»¯ Liá»u | Data Interchange | Sá»± trao Äá»i thÃ´ng tin giá»¯a cÃ¡c bÃªn |
-| Tuáº§n Tá»± HÃ³a | Serialized | Chuyá»n Äá»i dá»¯ liá»u thÃ nh dáº¡ng cÃ³ thá» truyá»n táº£i |
-| Giáº£i Tuáº§n Tá»± HÃ³a | Deserialized | Chuyá»n Äá»i dá»¯ liá»u nháº­n ÄÆ°á»£c trá» láº¡i dáº¡ng ban Äáº§u |
-| Kiá»m Tra Tá»± Äá»ng | Automated Tests | CÃ¡c bÃ i kiá»m tra cháº¡y tá»± Äá»ng |
-| JSON | JSON | Javascript Object Notation - KÃ½ hiá»u Äá»i tÆ°á»£ng Javascript |
-| YAML | YAML | Yet Another Markup Language - Má»t ngÃ´n ngá»¯ ÄÃ¡nh dáº¥u khÃ¡c |
-| XML | XML | Extensible Markup Language - NgÃ´n ngá»¯ ÄÃ¡nh dáº¥u má» rá»ng |
-| Request URI | Request URI | Äá»a chá» cá»§a yÃªu cáº§u API |
-| HTTP Verb | HTTP Verb | PhÆ°Æ¡ng thá»©c HTTP (GET, POST, PUT, DELETE...) |
-| Status Code | Status Code | MÃ£ tráº¡ng thÃ¡i HTTP |
-| 200 OK | 200 OK | ThÃ nh cÃ´ng - YÃªu cáº§u ÄÆ°á»£c xá»­ lÃ½ thÃ nh cÃ´ng |
-| 401 UNAUTHORIZED | 401 UNAUTHORIZED | KhÃ´ng ÄÆ°á»£c phÃ©p - NgÆ°á»i dÃ¹ng chÆ°a xÃ¡c thá»±c hoáº·c khÃ´ng cÃ³ quyá»n |
-| 404 NOT FOUND | 404 NOT FOUND | KhÃ´ng tÃ¬m tháº¥y - TÃ i nguyÃªn khÃ´ng tá»n táº¡i |
-| Authenticated | XÃ¡c thá»±c | ÄÃ£ xÃ¡c nháº­n danh tÃ­nh ngÆ°á»i dÃ¹ng |
-| Authorized | ÄÆ°á»£c phÃ©p | NgÆ°á»i dÃ¹ng cÃ³ quyá»n truy cáº­p tÃ i nguyÃªn |
-| Response Body | Pháº§n thÃ¢n pháº£n há»i | Dá»¯ liá»u ÄÆ°á»£c tráº£ vá» trong pháº£n há»i |
+| Hợp Đồng | Contract | Thỏa thuận, quy ước |
+| API Contract | API Contract | Thỏa thuận về hành vi API |
+| Nhà Cung Cấp | Provider | Bên cung cấp dịch vụ/API |
+| Người Tiêu Dùng | Consumer | Bên sử dụng dịch vụ/API |
+| Trao Đổi Dữ Liệu | Data Interchange | Sự trao đổi thông tin giữa các bên |
+| Tuần Tự Hóa | Serialized | Chuyển đổi dữ liệu thành dạng có thể truyền tải |
+| Giải Tuần Tự Hóa | Deserialized | Chuyển đổi dữ liệu nhận được trở lại dạng ban đầu |
+| Kiểm Tra Tự Động | Automated Tests | Các bài kiểm tra chạy tự động |
+| JSON | JSON | Javascript Object Notation - Ký hiệu đối tượng Javascript |
+| YAML | YAML | Yet Another Markup Language - Một ngôn ngữ đánh dấu khác |
+| XML | XML | Extensible Markup Language - Ngôn ngữ đánh dấu mở rộng |
+| Request URI | Request URI | Địa chỉ của yêu cầu API |
+| HTTP Verb | HTTP Verb | Phương thức HTTP (GET, POST, PUT, DELETE...) |
+| Status Code | Status Code | Mã trạng thái HTTP |
+| 200 OK | 200 OK | Thành công - Yêu cầu được xử lý thành công |
+| 401 UNAUTHORIZED | 401 UNAUTHORIZED | Không được phép - Người dùng chưa xác thực hoặc không có quyền |
+| 404 NOT FOUND | 404 NOT FOUND | Không tìm thấy - Tài nguyên không tồn tại |
+| Authenticated | Xác thực | Đã xác nhận danh tính người dùng |
+| Authorized | Được phép | Người dùng có quyền truy cập tài nguyên |
+| Response Body | Phần thân phản hồi | Dữ liệu được trả về trong phản hồi |
 
 ---
 
-## GHI CHÃ ÃN Láº I - ÄIá»M CHÃNH
+## GHI CHÚ ÔN LẠI - ĐIỂM CHÍNH
 
-â **API Contract** = Thá»a thuáº­n giá»¯a nhÃ  cung cáº¥p API vÃ  ngÆ°á»i tiÃªu dÃ¹ng  
-â **Importance** = GiÃºp giao tiáº¿p rÃµ rÃ ng, há» trá»£ automated tests  
-â **JSON** = Äá»nh dáº¡ng trao Äá»i dá»¯ liá»u phá» biáº¿n nháº¥t cho REST APIs  
-â **HTTP Methods** = GET, POST, PUT, DELETE Äá» thao tÃ¡c tÃ i nguyÃªn  
-â **Status Codes** = 200 OK, 401 UNAUTHORIZED, 404 NOT FOUND, v.v.  
-â **No Language Requirement** = Provider vÃ  Consumer khÃ´ng cáº§n cÃ¹ng ngÃ´n ngá»¯ láº­p trÃ¬nh
+✅ **API Contract** = Thỏa thuận giữa nhà cung cấp API và người tiêu dùng  
+✅ **Importance** = Giúp giao tiếp rõ ràng, hỗ trợ automated tests  
+✅ **JSON** = Định dạng trao đổi dữ liệu phổ biến nhất cho REST APIs  
+✅ **HTTP Methods** = GET, POST, PUT, DELETE để thao tác tài nguyên  
+✅ **Status Codes** = 200 OK, 401 UNAUTHORIZED, 404 NOT FOUND, v.v.  
+✅ **No Language Requirement** = Provider và Consumer không cần cùng ngôn ngữ lập trình
 
 ---
 
@@ -170,9 +170,9 @@ So vá»i XML, JSON:
 GET /cashcards/{id}
 
 Responses:
-- 200 OK: Láº¥y Cash Card thÃ nh cÃ´ng
-- 401 UNAUTHORIZED: KhÃ´ng xÃ¡c thá»±c hoáº·c khÃ´ng ÄÆ°á»£c phÃ©p
-- 404 NOT FOUND: Cash Card khÃ´ng tá»n táº¡i
+- 200 OK: Lấy Cash Card thành công
+- 401 UNAUTHORIZED: Không xác thực hoặc không được phép
+- 404 NOT FOUND: Cash Card không tồn tại
 
 Response Body:
 {
@@ -183,15 +183,15 @@ Response Body:
 
 ---
 
-## BÆ¯á»C TIáº¾P THEO
+## BƯỚC TIẾP THEO
 
-ð LÃ m bÃ i **Lab: Testing First** Äá» báº¯t Äáº§u viáº¿t cÃ¡c bÃ i kiá»m tra cho API!
+🚀 Làm bài **Lab: Testing First** để bắt đầu viết các bài kiểm tra cho API!
 
 ---
 
-## LIÃN Há» & TÃI LIá»U
+## LIÊN HỆ & TÀI LIỆU
 
 - **JSON:** https://www.json.org/
 - **YAML:** https://yaml.org/
 - **XML:** https://www.w3.org/XML/
-- **Consumer-Driven Contracts:** Xem tÃ i liá»u chÃ­nh thá»©c Spring
+- **Consumer-Driven Contracts:** Xem tài liệu chính thức Spring
