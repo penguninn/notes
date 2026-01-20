@@ -2,7 +2,7 @@
 url: https://spring.academy/courses/building-a-rest-api-with-spring-boot/lessons/data-contracts
 title: API Contracts & JSON - Spring Academy
 created: 2026-01-19T03:18:47.384Z
-updated: 2026-01-19T04:15:24.998Z
+updated: 2026-01-20T05:26:37.366Z
 tags: []
 ---
 
@@ -187,7 +187,7 @@ Response Body:
 
 🚀 Làm bài **Lab: Testing First** để bắt đầu viết các bài kiểm tra cho API!
 
----
+--- 
 
 ## LIÊN HỆ & TÀI LIỆU
 
