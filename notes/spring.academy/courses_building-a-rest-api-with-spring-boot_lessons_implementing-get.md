@@ -2,12 +2,12 @@
 url: https://spring.academy/courses/building-a-rest-api-with-spring-boot/lessons/implementing-get
 title: Implementing GET - Spring Academy
 created: 2026-01-22T01:47:06.711Z
-updated: 2026-01-22T01:49:39.089Z
+updated: 2026-01-22T01:49:52.942Z
 tags: []
 ---
 
 # Notes
-# BÀI 1: TRIỂN KHAI PHƯƠNG THỨC GET (Implementing GET)
+# TRIỂN KHAI PHƯƠNG THỨC GET (Implementing GET)
 
 ## 🎯 MỤC TIÊU BÀI HỌC
 Trong bài học này, bạn sẽ học REST là gì và cách sử dụng Spring Boot để triển khai một RESTful endpoint đơn giản.
